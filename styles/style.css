@@ -1,0 +1,105 @@
+body {
+  margin: 0;
+  overflow: hidden;
+  min-width: 400px;
+  min-height: 400px;
+}
+
+main {
+  width: 100vw;
+  height: 100vh;
+}
+
+main > img {
+  width: 100%;
+  height: 100%;
+  filter: grayscale(40%);
+}
+
+button {
+  cursor: pointer;
+  border-width: 0 0 0.3rem 0;
+}
+
+#calculator {
+  position: absolute;
+  width: 50vw;
+  height: 50vh;
+  background-color: rgb(0, 0, 0, 0.3);
+  border-radius: 0.3em;
+  box-shadow: 4px 4px 4px black;
+  padding: 1rem;
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  display: flex;
+  flex-direction: column;
+}
+
+#calculator div:first-child {
+  width: 100%;
+  height: 12%;
+  display: flex;
+  margin-bottom: 0.3em;
+}
+
+#calculator div:first-child button {
+  width: 10%;
+  margin-right: 0.3em;
+}
+
+#input-value {
+  width: 90%;
+  border: 0.5px solid black;
+  background-color: rgb(0, 0, 0, 0.3);
+  color: #f2f2f2;
+  font-size: 2em;
+  text-align: right;
+  padding-right: 0.5em;
+}
+
+#numberpad {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.3em;
+}
+
+#numberpad > button {
+  box-shadow: 4px 4px 4px black;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+#numberpad > button:not(.operator) {
+  background-color: rgba(248, 248, 248, 0.3);
+}
+
+.operator {
+  background-color: rgb(170, 31, 55, 0.5);
+}
+
+#numberpad > button:hover {
+  /* background-color: rgba(5, 99, 2, 0.8); */
+  background: linear-gradient(45deg, #ff6a00, #ffb000);
+  color: #f2f2f2;
+}
+
+#equal {
+  background-color: rgb(0, 255, 255, 0.5);
+}
+
+#clearBtn {
+  background-color: #8d623f;
+  box-shadow: 4px 4px 4px black;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+#clearBtn:hover {
+  background: linear-gradient(45deg, #8d623f, #973c00);
+  color: #f2f2f2;
+}

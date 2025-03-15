@@ -6,5 +6,74 @@
     <title>ITS1119 - Assignment 06</title>
     <link rel="stylesheet" href="/styles/style.css" />
   </head>
-  <body></body>
+  <body>
+    <main>
+      <img src="/assets/4153860.jpg" alt="" />
+      <section>
+        <div id="calculator">
+          <div>
+            <button onclick="clearField()" id="clearBtn">C</button>
+            <input type="text" id="input-value" placeholder="0" />
+          </div>
+
+          <div id="numberpad">
+            <button onclick="appendToInput('7')">7</button>
+            <button onclick="appendToInput('8')">8</button>
+            <button onclick="appendToInput('9')">9</button>
+            <button class="operator" onclick="appendToInput('+')">+</button>
+            <button onclick="appendToInput('4')">4</button>
+            <button onclick="appendToInput('5')">5</button>
+            <button onclick="appendToInput('6')">6</button>
+            <button class="operator" onclick="appendToInput('-')">-</button>
+            <button onclick="appendToInput('1')">1</button>
+            <button onclick="appendToInput('2')">2</button>
+            <button onclick="appendToInput('3')">3</button>
+            <button class="operator" onclick="appendToInput('/')">/</button>
+            <button onclick="appendToInput('0')">0</button>
+            <button onclick="appendToInput('.')">.</button>
+            <button id="equal" class="operator" onclick="calculate()">=</button>
+            <button class="operator" onclick="appendToInput('*')">*</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      let inputField = document.getElementById("input-value");
+      let inputValue = 0;
+
+      function appendToInput(value) {
+        inputField.value += value;
+
+        inputValue += value;
+
+        if (value === "+" || value === "-" || value === "*" || value === "/") {
+          clearField();
+          inputField.placeholder = "";
+        }
+      }
+
+      function calculate() {
+        let expression = inputValue;
+        console.log(expression);
+
+        try {
+          let result = eval(expression);
+          console.log(result);
+          inputField.value = result;
+        } catch (error) {
+          console.log("Error in expression");
+          inputField.value = "Error";
+        }
+
+        inputValue = 0;
+      }
+
+      function clearField() {
+        inputField.value = "";
+        inputField.placeholder = 0;
+        console.log("Cleared input");
+      }
+    </script>
+  </body>
 </html>
