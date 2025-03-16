@@ -13,7 +13,7 @@
         <div id="calculator">
           <div>
             <button onclick="clearField()" id="clearBtn">C</button>
-            <input type="text" id="input-value" placeholder="0" />
+            <input type="text" id="input-value" placeholder="0" readonly />
           </div>
 
           <div id="numberpad">
@@ -38,42 +38,6 @@
       </section>
     </main>
 
-    <script>
-      let inputField = document.getElementById("input-value");
-      let inputValue = 0;
-
-      function appendToInput(value) {
-        inputField.value += value;
-
-        inputValue += value;
-
-        if (value === "+" || value === "-" || value === "*" || value === "/") {
-          clearField();
-          inputField.placeholder = "";
-        }
-      }
-
-      function calculate() {
-        let expression = inputValue;
-        console.log(expression);
-
-        try {
-          let result = eval(expression);
-          console.log(result);
-          inputField.value = result;
-        } catch (error) {
-          console.log("Error in expression");
-          inputField.value = "Error";
-        }
-
-        inputValue = 0;
-      }
-
-      function clearField() {
-        inputField.value = "";
-        inputField.placeholder = 0;
-        console.log("Cleared input");
-      }
-    </script>
+    <script src="/js/calculator.js"></script>
   </body>
 </html>
